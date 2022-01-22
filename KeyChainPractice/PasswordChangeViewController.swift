@@ -11,10 +11,14 @@ class PasswordChangeViewController: UIViewController {
 
     @IBOutlet private weak var currentPassword: UITextField!
     @IBOutlet private weak var newPassword: UITextField!
+    @IBOutlet private weak var changePasswordButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         currentPassword.placeholder = retrieveCurrentPassword()
+        
+        // 새로운 비밀번호를 입력하지 않으면 버튼이 비활성화 상태(disabled state)로 대기하도록
+        changePasswordButton.isEnabled = false
     }
     
     private func retrieveCurrentPassword() -> String {

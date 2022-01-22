@@ -241,6 +241,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="changePasswordButton" destination="Agn-Ig-rRv" id="DFs-fT-gVB"/>
                         <outlet property="currentPassword" destination="oOV-PD-hME" id="4z8-hh-EFs"/>
                         <outlet property="newPassword" destination="tne-PP-6zB" id="4g4-Ea-edu"/>
                     </connections>
