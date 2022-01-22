@@ -9,21 +9,33 @@ import UIKit
 
 class PasswordChangeViewController: UIViewController {
 
+    @IBOutlet private weak var currentPassword: UITextField!
+    @IBOutlet private weak var newPassword: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        currentPassword.placeholder = retrieveCurrentPassword()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func retrieveCurrentPassword() -> String {
+        let query: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
+                                    kSecMatchLimit as String: kSecMatchLimitOne,
+                                    kSecReturnAttributes as String: true,
+                                    kSecReturnData as String: true]
+        
+        var item: CFTypeRef?
+        let status = SecItemCopyMatching(query as CFDictionary, &item)
+        
+        guard status != errSecItemNotFound else {
+            return "아직 비밀번호를 등록하지 않았습니다."
+        }
+        guard let existingItem = item as? [String: Any],
+            let passwordData = existingItem[kSecValueData as String] as? Data,
+            let password = String(data: passwordData, encoding: .utf8)
+        else {
+            return "비밀번호를 가져오지 못했습니다."
+        }
+        
+        return password
     }
-    */
-
 }

@@ -196,6 +196,11 @@
                                     <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle3"/>
                                 </buttonConfiguration>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="oOV-PD-hME">
+                                <rect key="frame" x="135" y="343" width="239" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="tne-PP-6zB">
                                 <rect key="frame" x="135" y="404" width="239" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -213,11 +218,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="oOV-PD-hME">
-                                <rect key="frame" x="135" y="343" width="239" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fug-Jr-EF9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -240,6 +240,10 @@
                             <constraint firstItem="tne-PP-6zB" firstAttribute="centerY" secondItem="BzJ-IA-ael" secondAttribute="centerY" id="y9M-hR-ch1"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="currentPassword" destination="oOV-PD-hME" id="4z8-hh-EFs"/>
+                        <outlet property="newPassword" destination="tne-PP-6zB" id="4g4-Ea-edu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jgu-Zs-etb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

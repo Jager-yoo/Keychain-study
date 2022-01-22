@@ -12,7 +12,7 @@ class IntroViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet private weak var showDiaryButton: UIButton!
     @IBOutlet private weak var passwordTextField: UITextField!
     
-    @IBAction func showDiaryButtonTapped(_ sender: UIButton) {
+    @IBAction private func showDiaryButtonTapped(_ sender: UIButton) {
         let query: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
                                     kSecMatchLimit as String: kSecMatchLimitOne,
                                     kSecReturnAttributes as String: true, // 이거 필요
