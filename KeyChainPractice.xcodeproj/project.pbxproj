@@ -9,21 +9,29 @@
 /* Begin PBXBuildFile section */
 		C1C4FFC2279C124900294962 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C4FFC1279C124900294962 /* AppDelegate.swift */; };
 		C1C4FFC4279C124900294962 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C4FFC3279C124900294962 /* SceneDelegate.swift */; };
-		C1C4FFC6279C124900294962 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C4FFC5279C124900294962 /* ViewController.swift */; };
+		C1C4FFC6279C124900294962 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C4FFC5279C124900294962 /* IntroViewController.swift */; };
 		C1C4FFC9279C124900294962 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1C4FFC7279C124900294962 /* Main.storyboard */; };
 		C1C4FFCB279C124B00294962 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1C4FFCA279C124B00294962 /* Assets.xcassets */; };
 		C1C4FFCE279C124B00294962 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1C4FFCC279C124B00294962 /* LaunchScreen.storyboard */; };
+		C1C4FFD6279C161600294962 /* DiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C4FFD5279C161600294962 /* DiaryViewController.swift */; };
+		C1C4FFD8279C177600294962 /* PasswordChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C4FFD7279C177600294962 /* PasswordChangeViewController.swift */; };
+		C1C4FFDA279C1FD400294962 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C4FFD9279C1FD400294962 /* Credentials.swift */; };
+		C1C4FFDC279C26F300294962 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C4FFDB279C26F300294962 /* UIViewController+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C1C4FFBE279C124900294962 /* KeyChainPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeyChainPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1C4FFC1279C124900294962 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1C4FFC3279C124900294962 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C1C4FFC5279C124900294962 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C1C4FFC5279C124900294962 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		C1C4FFC8279C124900294962 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C1C4FFCA279C124B00294962 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C1C4FFCD279C124B00294962 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C1C4FFCF279C124B00294962 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C1C4FFD5279C161600294962 /* DiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryViewController.swift; sourceTree = "<group>"; };
+		C1C4FFD7279C177600294962 /* PasswordChangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordChangeViewController.swift; sourceTree = "<group>"; };
+		C1C4FFD9279C1FD400294962 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
+		C1C4FFDB279C26F300294962 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +66,11 @@
 			children = (
 				C1C4FFC1279C124900294962 /* AppDelegate.swift */,
 				C1C4FFC3279C124900294962 /* SceneDelegate.swift */,
-				C1C4FFC5279C124900294962 /* ViewController.swift */,
+				C1C4FFD9279C1FD400294962 /* Credentials.swift */,
+				C1C4FFC5279C124900294962 /* IntroViewController.swift */,
+				C1C4FFD5279C161600294962 /* DiaryViewController.swift */,
+				C1C4FFD7279C177600294962 /* PasswordChangeViewController.swift */,
+				C1C4FFDB279C26F300294962 /* UIViewController+Extension.swift */,
 				C1C4FFC7279C124900294962 /* Main.storyboard */,
 				C1C4FFCA279C124B00294962 /* Assets.xcassets */,
 				C1C4FFCC279C124B00294962 /* LaunchScreen.storyboard */,
@@ -138,8 +150,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C1C4FFC6279C124900294962 /* ViewController.swift in Sources */,
+				C1C4FFDA279C1FD400294962 /* Credentials.swift in Sources */,
+				C1C4FFD6279C161600294962 /* DiaryViewController.swift in Sources */,
+				C1C4FFC6279C124900294962 /* IntroViewController.swift in Sources */,
+				C1C4FFD8279C177600294962 /* PasswordChangeViewController.swift in Sources */,
 				C1C4FFC2279C124900294962 /* AppDelegate.swift in Sources */,
+				C1C4FFDC279C26F300294962 /* UIViewController+Extension.swift in Sources */,
 				C1C4FFC4279C124900294962 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
