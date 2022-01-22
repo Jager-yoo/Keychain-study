@@ -63,7 +63,7 @@
                                     <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle3"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="3HC-ga-eh4" kind="presentation" id="Q3Y-ws-KYq"/>
+                                    <segue destination="3HC-ga-eh4" kind="presentation" identifier="PasswordChangeViewController" id="Q3Y-ws-KYq"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="나만의 일기장" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1X7-o0-Vja">
@@ -96,6 +96,7 @@
                     </view>
                     <connections>
                         <outlet property="passwordTextField" destination="D8c-9m-PfU" id="Mai-jr-NcS"/>
+                        <outlet property="showDiaryButton" destination="Wwz-V8-akq" id="yVw-GL-DjB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
