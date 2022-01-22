@@ -195,6 +195,9 @@
                                 <buttonConfiguration key="configuration" style="filled" title="비밀번호 변경하기">
                                     <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle3"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="changePassword:" destination="3HC-ga-eh4" eventType="touchUpInside" id="YCI-fi-Slb"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="oOV-PD-hME">
                                 <rect key="frame" x="135" y="343" width="239" height="34"/>
@@ -242,8 +245,8 @@
                     </view>
                     <connections>
                         <outlet property="changePasswordButton" destination="Agn-Ig-rRv" id="DFs-fT-gVB"/>
-                        <outlet property="currentPassword" destination="oOV-PD-hME" id="4z8-hh-EFs"/>
-                        <outlet property="newPassword" destination="tne-PP-6zB" id="4g4-Ea-edu"/>
+                        <outlet property="currentPasswordTextField" destination="oOV-PD-hME" id="4z8-hh-EFs"/>
+                        <outlet property="newPasswordTextField" destination="tne-PP-6zB" id="4g4-Ea-edu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jgu-Zs-etb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

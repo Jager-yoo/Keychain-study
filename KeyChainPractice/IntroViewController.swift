@@ -22,7 +22,7 @@ class IntroViewController: UIViewController, UITextFieldDelegate {
         let status = SecItemCopyMatching(query as CFDictionary, &item)
         
         guard status != errSecItemNotFound else {
-            showBasicAlert(title: "아직 비밀번호를 등록하지 않았습니다.", message: "새로운 비밀번호를 등록해주세요!")
+            showBasicAlert(title: "아직 비밀번호를 등록하지 않았습니다.", message: "새로운 비밀번호를 등록해주세요!", handler: nil)
             return
         }
         
@@ -30,7 +30,7 @@ class IntroViewController: UIViewController, UITextFieldDelegate {
             let passwordData = existingItem[kSecValueData as String] as? Data,
             let password = String(data: passwordData, encoding: .utf8)
         else {
-            showBasicAlert(title: "에러 발생", message: "무슨 에러인지는 나도 몰루")
+            showBasicAlert(title: "에러 발생", message: "무슨 에러인지는 나도 몰루", handler: nil)
             return
         }
         
@@ -59,12 +59,12 @@ class IntroViewController: UIViewController, UITextFieldDelegate {
         
         switch status {
         case errSecSuccess:
-            showBasicAlert(title: "새로운 비밀번호가 등록됐습니다.", message: "아싸")
+            showBasicAlert(title: "새로운 비밀번호가 등록됐습니다.", message: "아싸", handler: nil)
         case -25299:
-            showBasicAlert(title: "비밀번호가 이미 등록되어 있습니다.", message: "잘 떠올려보세요!")
+            showBasicAlert(title: "비밀번호가 이미 등록되어 있습니다.", message: "잘 떠올려보세요!", handler: nil)
             // 삭제 후 재등록할까요? Alert 있으면 좋을 듯!
         default:
-            showBasicAlert(title: "에러 발생", message: "무슨 에러인지는 나도 몰루")
+            showBasicAlert(title: "에러 발생", message: "무슨 에러인지는 나도 몰루", handler: nil)
         }
     }
 
