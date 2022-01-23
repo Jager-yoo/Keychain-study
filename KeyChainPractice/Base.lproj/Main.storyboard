@@ -22,7 +22,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="여기 비밀번호" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="D8c-9m-PfU">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="공백 제외하고 4글자 이상" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="D8c-9m-PfU">
                                 <rect key="frame" x="70" y="431" width="274" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -97,6 +97,7 @@
                     <connections>
                         <outlet property="changePasswordButton" destination="x7a-Gd-oaK" id="IPM-04-dzS"/>
                         <outlet property="passwordTextField" destination="D8c-9m-PfU" id="Mai-jr-NcS"/>
+                        <outlet property="registerPasswordButton" destination="I2o-dy-hA7" id="xpc-P0-JZb"/>
                         <outlet property="showDiaryButton" destination="Wwz-V8-akq" id="yVw-GL-DjB"/>
                     </connections>
                 </viewController>
@@ -205,7 +206,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="tne-PP-6zB">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="공백 제외하고 4글자 이상" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="tne-PP-6zB">
                                 <rect key="frame" x="135" y="404" width="239" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>

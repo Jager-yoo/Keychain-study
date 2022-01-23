@@ -9,8 +9,9 @@ import UIKit
 
 class IntroViewController: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet private weak var showDiaryButton: UIButton!
     @IBOutlet private weak var passwordTextField: UITextField!
+    @IBOutlet private weak var showDiaryButton: UIButton!
+    @IBOutlet private weak var registerPasswordButton: UIButton!
     @IBOutlet private weak var changePasswordButton: UIButton!
     
     @IBAction private func showDiaryButtonTapped(_ sender: UIButton) {
@@ -47,7 +48,8 @@ class IntroViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction private func passwordRegisterButtonTapped(_ sender: UIButton) {
-        let credentials = Credentials(password: passwordTextField.text!)
+        let passwordWithoutWhiteSpace = passwordTextField.text!.replacingOccurrences(of: " ", with: "")
+        let credentials = Credentials(password: passwordWithoutWhiteSpace)
         let password = credentials.password.data(using: .utf8)!
         let query: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
                                     kSecValueData as String: password]
@@ -73,6 +75,7 @@ class IntroViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         passwordTextField.delegate = self
+        registerPasswordButton.isEnabled = false
         
         // 노티피케이션 센터 addObserver 설치
         notificationCenter.addObserver(
@@ -99,6 +102,16 @@ class IntroViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         showDiaryButtonTapped(showDiaryButton)
         return true
+    }
+    
+    // 공백 제외하고 4글자 이상 들어와야 비밀번호 등록 버튼이 활성화되게 만들기
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        let passwordWithoutWhiteSpace = passwordTextField.text!.replacingOccurrences(of: " ", with: "")
+        guard passwordWithoutWhiteSpace.count >= 4 else {
+            registerPasswordButton.isEnabled = false
+            return
+        }
+        registerPasswordButton.isEnabled = true
     }
 }
 

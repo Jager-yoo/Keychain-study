@@ -16,13 +16,15 @@ class PasswordChangeViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction private func changePassword(_ sender: UIButton) {
         
-        guard newPasswordTextField.text! != currentPasswordTextField.placeholder ?? "" else {
+        let newPasswordWithoutWhiteSpace = newPasswordTextField.text!.replacingOccurrences(of: " ", with: "")
+        
+        guard newPasswordWithoutWhiteSpace != currentPasswordTextField.placeholder else {
             showBasicAlert(title: "기존 비밀번호와 중복입니다.", message: "새로운 비밀번호를 등록해주세요!", handler: nil)
             return
         }
         
         let query: [String: Any] = [kSecClass as String: kSecClassGenericPassword]
-        let newCredentials = Credentials(password: newPasswordTextField.text!)
+        let newCredentials = Credentials(password: newPasswordWithoutWhiteSpace)
         let newPassword = newCredentials.password.data(using: .utf8)!
         // kSecClass as String: kSecClassGenericPassword -> 이건 필요 없음
         let attributes: [String: Any] = [kSecValueData as String: newPassword]
@@ -74,13 +76,12 @@ class PasswordChangeViewController: UIViewController, UITextFieldDelegate {
     
     // 아래 메서드는 textField 값이 변경되기 직전마다 불린다.
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        // ⭐️ textField 가 비어있다면, 버튼을 비활성화시키고 리턴해라!
-        guard newPasswordTextField.text!.isEmpty == false else {
+        // ⭐️ textField 가 whiteSpace 제외하고 4글자 이상이 아니라면, 버튼을 비활성화시키고 리턴해라!
+        let passwordWithoutWhiteSpace = newPasswordTextField.text!.replacingOccurrences(of: " ", with: "")
+        guard passwordWithoutWhiteSpace.count >= 4 else {
             changePasswordButton.isEnabled = false
             return
         }
-        
-        // textField 가 수정을 시작했고 비어있지 않다면, 버튼을 활성화(enable) 시켜라!
         changePasswordButton.isEnabled = true
     }
     
