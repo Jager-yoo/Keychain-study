@@ -95,6 +95,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="changePasswordButton" destination="x7a-Gd-oaK" id="IPM-04-dzS"/>
                         <outlet property="passwordTextField" destination="D8c-9m-PfU" id="Mai-jr-NcS"/>
                         <outlet property="showDiaryButton" destination="Wwz-V8-akq" id="yVw-GL-DjB"/>
                     </connections>
@@ -221,12 +222,28 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8iI-Ot-c5P">
+                                <rect key="frame" x="40" y="578" width="334" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="aGR-Lz-8v6"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="비밀번호 삭제하기">
+                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="deletePassword:" destination="3HC-ga-eh4" eventType="touchUpInside" id="gSi-i2-Ttf"/>
+                                    <action selector="passwordRegisterButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eQv-Gf-l7q"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fug-Jr-EF9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="QF9-xW-HKd" firstAttribute="centerX" secondItem="qhe-Le-zR6" secondAttribute="centerX" id="0OM-cE-Kbs"/>
                             <constraint firstItem="BzJ-IA-ael" firstAttribute="leading" secondItem="fug-Jr-EF9" secondAttribute="leading" constant="40" id="1QW-Cd-qP0"/>
+                            <constraint firstItem="fug-Jr-EF9" firstAttribute="trailing" secondItem="8iI-Ot-c5P" secondAttribute="trailing" constant="40" id="D0K-ur-CB5"/>
+                            <constraint firstItem="8iI-Ot-c5P" firstAttribute="leading" secondItem="fug-Jr-EF9" secondAttribute="leading" constant="40" id="DRc-rR-S1t"/>
                             <constraint firstItem="fug-Jr-EF9" firstAttribute="trailing" secondItem="Agn-Ig-rRv" secondAttribute="trailing" constant="40" id="HML-70-3YG"/>
                             <constraint firstItem="tne-PP-6zB" firstAttribute="leading" secondItem="BzJ-IA-ael" secondAttribute="trailing" constant="20" id="RSF-XU-FOQ"/>
                             <constraint firstItem="QF9-xW-HKd" firstAttribute="top" secondItem="fug-Jr-EF9" secondAttribute="top" constant="80" id="YXE-on-dTG"/>
@@ -240,12 +257,14 @@
                             <constraint firstItem="fug-Jr-EF9" firstAttribute="trailing" secondItem="oOV-PD-hME" secondAttribute="trailing" constant="40" id="tac-7N-fP8"/>
                             <constraint firstItem="oOV-PD-hME" firstAttribute="leading" secondItem="tne-PP-6zB" secondAttribute="leading" id="uWz-AA-sA3"/>
                             <constraint firstItem="oOV-PD-hME" firstAttribute="centerY" secondItem="eoZ-ZQ-TfP" secondAttribute="centerY" id="w1B-u5-kyJ"/>
+                            <constraint firstItem="8iI-Ot-c5P" firstAttribute="top" secondItem="Agn-Ig-rRv" secondAttribute="bottom" constant="30" id="xZd-H9-V0D"/>
                             <constraint firstItem="tne-PP-6zB" firstAttribute="centerY" secondItem="BzJ-IA-ael" secondAttribute="centerY" id="y9M-hR-ch1"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="changePasswordButton" destination="Agn-Ig-rRv" id="DFs-fT-gVB"/>
                         <outlet property="currentPasswordTextField" destination="oOV-PD-hME" id="4z8-hh-EFs"/>
+                        <outlet property="deletePasswordButton" destination="8iI-Ot-c5P" id="C0d-xs-hx0"/>
                         <outlet property="newPasswordTextField" destination="tne-PP-6zB" id="4g4-Ea-edu"/>
                     </connections>
                 </viewController>

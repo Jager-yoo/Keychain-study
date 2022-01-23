@@ -17,6 +17,7 @@
 		C1C4FFD8279C177600294962 /* PasswordChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C4FFD7279C177600294962 /* PasswordChangeViewController.swift */; };
 		C1C4FFDA279C1FD400294962 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C4FFD9279C1FD400294962 /* Credentials.swift */; };
 		C1C4FFDC279C26F300294962 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C4FFDB279C26F300294962 /* UIViewController+Extension.swift */; };
+		C1C4FFDE279D2BC000294962 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C4FFDD279D2BC000294962 /* NotificationCenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		C1C4FFD7279C177600294962 /* PasswordChangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordChangeViewController.swift; sourceTree = "<group>"; };
 		C1C4FFD9279C1FD400294962 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		C1C4FFDB279C26F300294962 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		C1C4FFDD279D2BC000294962 /* NotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				C1C4FFD5279C161600294962 /* DiaryViewController.swift */,
 				C1C4FFD7279C177600294962 /* PasswordChangeViewController.swift */,
 				C1C4FFDB279C26F300294962 /* UIViewController+Extension.swift */,
+				C1C4FFDD279D2BC000294962 /* NotificationCenter.swift */,
 				C1C4FFC7279C124900294962 /* Main.storyboard */,
 				C1C4FFCA279C124B00294962 /* Assets.xcassets */,
 				C1C4FFCC279C124B00294962 /* LaunchScreen.storyboard */,
@@ -153,6 +156,7 @@
 				C1C4FFDA279C1FD400294962 /* Credentials.swift in Sources */,
 				C1C4FFD6279C161600294962 /* DiaryViewController.swift in Sources */,
 				C1C4FFC6279C124900294962 /* IntroViewController.swift in Sources */,
+				C1C4FFDE279D2BC000294962 /* NotificationCenter.swift in Sources */,
 				C1C4FFD8279C177600294962 /* PasswordChangeViewController.swift in Sources */,
 				C1C4FFC2279C124900294962 /* AppDelegate.swift in Sources */,
 				C1C4FFDC279C26F300294962 /* UIViewController+Extension.swift in Sources */,

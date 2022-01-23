@@ -12,6 +12,7 @@ class PasswordChangeViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet private weak var currentPasswordTextField: UITextField!
     @IBOutlet private weak var newPasswordTextField: UITextField!
     @IBOutlet private weak var changePasswordButton: UIButton!
+    @IBOutlet private weak var deletePasswordButton: UIButton!
     
     @IBAction private func changePassword(_ sender: UIButton) {
         
@@ -21,16 +22,6 @@ class PasswordChangeViewController: UIViewController, UITextFieldDelegate {
         }
         
         let query: [String: Any] = [kSecClass as String: kSecClassGenericPassword]
-        
-        // 만약 변경할 비밀번호가 공백("") 이면, 비밀번호 삭제시키는 로직
-        guard newPasswordTextField.text!.isEmpty == false else {
-            let _ = SecItemDelete(query as CFDictionary)
-            showBasicAlert(title: "비밀번호가 삭제됐습니다.", message: "새로운 비밀번호를 다시 등록해주세요!") { _ in
-                self.dismiss(animated: true, completion: nil)
-            }
-            return
-        }
-        
         let newCredentials = Credentials(password: newPasswordTextField.text!)
         let newPassword = newCredentials.password.data(using: .utf8)!
         // kSecClass as String: kSecClassGenericPassword -> 이건 필요 없음
@@ -56,6 +47,16 @@ class PasswordChangeViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    @IBAction private func deletePassword(_ sender: UIButton) {
+        let query: [String: Any] = [kSecClass as String: kSecClassGenericPassword]
+        let _ = SecItemDelete(query as CFDictionary)
+        showBasicAlert(title: "비밀번호가 삭제됐습니다.", message: "새로운 비밀번호를 다시 등록해주세요!") { _ in
+            notificationCenter.post(name: .passwordDidDelete, object: nil)
+            self.dismiss(animated: true, completion: nil)
+        }
+        return
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         newPasswordTextField.delegate = self
@@ -63,28 +64,12 @@ class PasswordChangeViewController: UIViewController, UITextFieldDelegate {
         
         // 새로운 비밀번호를 입력하지 않으면 버튼이 비활성화 상태(disabled state)로 대기하도록
         changePasswordButton.isEnabled = false
-    }
-    
-    private func retrieveCurrentPassword() -> String {
-        let query: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
-                                    kSecMatchLimit as String: kSecMatchLimitOne,
-                                    kSecReturnAttributes as String: true,
-                                    kSecReturnData as String: true]
         
-        var item: CFTypeRef?
-        let status = SecItemCopyMatching(query as CFDictionary, &item)
-        
-        guard status != errSecItemNotFound else {
-            return "아직 비밀번호를 등록하지 않았습니다."
+        // 기존 비밀번호가 등록되지 않았다면(nil), 비밀번호 삭제 버튼이 비활성화 상태로 대기함
+        guard retrieveCurrentPassword() != nil else {
+            deletePasswordButton.isEnabled = false
+            return
         }
-        guard let existingItem = item as? [String: Any],
-            let passwordData = existingItem[kSecValueData as String] as? Data,
-            let password = String(data: passwordData, encoding: .utf8)
-        else {
-            return "비밀번호를 가져오지 못했습니다."
-        }
-        
-        return password
     }
     
     // 아래 메서드는 textField 값이 변경되기 직전마다 불린다.

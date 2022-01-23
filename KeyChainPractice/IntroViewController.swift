@@ -11,6 +11,7 @@ class IntroViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet private weak var showDiaryButton: UIButton!
     @IBOutlet private weak var passwordTextField: UITextField!
+    @IBOutlet private weak var changePasswordButton: UIButton!
     
     @IBAction private func showDiaryButtonTapped(_ sender: UIButton) {
         let query: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
@@ -60,6 +61,7 @@ class IntroViewController: UIViewController, UITextFieldDelegate {
         switch status {
         case errSecSuccess:
             showBasicAlert(title: "새로운 비밀번호가 등록됐습니다.", message: "아싸", handler: nil)
+            checkWhetherPasswordAlreadyExists()
         case -25299:
             showBasicAlert(title: "비밀번호가 이미 등록되어 있습니다.", message: "잘 떠올려보세요!", handler: nil)
             // 삭제 후 재등록할까요? Alert 있으면 좋을 듯!
@@ -71,6 +73,26 @@ class IntroViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         passwordTextField.delegate = self
+        
+        // 노티피케이션 센터 addObserver 설치
+        notificationCenter.addObserver(
+            self,
+            selector: #selector(checkWhetherPasswordAlreadyExists),
+            name: .passwordDidDelete,
+            object: nil
+        )
+        
+        checkWhetherPasswordAlreadyExists()
+    }
+    
+    // 기존 비밀번호가 있는지 확인하고, 없다면 비밀번호 변경버튼을 비활성화 처리
+    @objc
+    private func checkWhetherPasswordAlreadyExists() {
+        guard retrieveCurrentPassword() != nil else {
+            changePasswordButton.isEnabled = false
+            return
+        }
+        changePasswordButton.isEnabled = true
     }
     
     // 비밀번호 다 입력하고 엔터(return 버튼) 눌렀을 때 호출됨, 대신 delegate 설정을 반드시 해줘야 함!
