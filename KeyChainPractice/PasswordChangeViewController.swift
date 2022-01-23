@@ -83,4 +83,9 @@ class PasswordChangeViewController: UIViewController, UITextFieldDelegate {
         // textField 가 수정을 시작했고 비어있지 않다면, 버튼을 활성화(enable) 시켜라!
         changePasswordButton.isEnabled = true
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        changePassword(changePasswordButton)
+        return true
+    }
 }
